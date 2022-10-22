@@ -1,0 +1,25 @@
+{
+  "name": "config-module-example",
+  "version": "0.0.0-development",
+  "description": "Example trying out node-config for a module",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "config": "^3.3.7",
+    "pino": "^8.4.0"
+  },
+  "devDependencies": {
+    "jest": "29.2.1",
+    "prettier": "2.7.1"
+  },
+  "license": "MIT"
+}
