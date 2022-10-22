@@ -1,4 +1,3 @@
-// import { myModule } from './my-module.js';
 const myModule = require('./my-module')
 
 describe('my-module', () => {
@@ -10,17 +9,15 @@ describe('my-module', () => {
     jest.restoreAllMocks();
   });
 
-  it('should not fail 1', () => {
-    const module = myModule();
-    expect(module).toStrictEqual({
+  it('should not fail when creating multiple instances', () => {
+    const module1 = myModule();
+    expect(module1).toStrictEqual({
       apple: 'test-apple',
       pear: 'test-pear',
     });
-  });
 
-  it('should not fail 2', async () => {
-    const module = myModule();
-    expect(module).toStrictEqual({
+    const module2 = myModule();
+    expect(module2).toStrictEqual({
       apple: 'test-apple',
       pear: 'test-pear',
     });

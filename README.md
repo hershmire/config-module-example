@@ -36,10 +36,9 @@ $ jest
 
  FAIL  src/my-module.test.js
   my-module
-    ✓ should not fail 1 (14 ms)
-    ✕ should not fail 2 (2 ms)
+    ✕ should not fail when creating multiple instances (16 ms)
 
-  ● my-module › should not fail 2
+  ● my-module › should not fail when creating multiple instances
 
     TypeError: Cannot redefine property: myModule
         at Function.defineProperty (<anonymous>)
@@ -55,15 +54,7 @@ $ jest
       at Config.Object.<anonymous>.util.makeImmutable (node_modules/config/lib/config.js:423:14)
       at Config.Object.<anonymous>.Config.get (node_modules/config/lib/config.js:170:12)
       at get (src/my-module.js:18:24)
-      at Object.myModule (src/my-module.test.js:22:20)
-
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 passed, 2 total
-Snapshots:   0 total
-Time:        0.154 s, estimated 1 s
-Ran all test suites.
-error Command failed with exit code 1.
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+      at Object.myModule (src/my-module.test.js:19:21)
 ```
 
 This seems to occur when a second instance of `myModule` is created, node-config tries to set the module defaults and then deeper within that module, it tries to get a value from the config with the `get` method. This issue does not occur with the dot notation.
